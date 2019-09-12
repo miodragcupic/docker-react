@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t miodragcdocker/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run miodragcdocker/docker-react npm run test -- --coverage
